@@ -40,7 +40,9 @@ jobs:
       - name: Build production bundle
         uses: borales/actions-yarn@v4
         with:
-          cmd: build --output-path=./build/${{ github.run_id }}
+          cmd: build
+        env:
+          PUBLIC_URL: /todo-react/${{ github.run_id }}
 
       - name: Setup pages
         uses: actions/configure-pages@v2
