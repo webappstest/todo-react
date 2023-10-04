@@ -3,7 +3,7 @@ name: Build and deploy to GH Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    # branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -41,6 +41,8 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: build
+        env:
+          PUBLIC_URL: https://webappstest.github.io/todo-react/${{ github.run_id }}
 
       - name: Setup pages
         uses: actions/configure-pages@v2
@@ -52,3 +54,9 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+      - name: Run Dastardly Action Step
+        # run: echo $url
+        uses: PortSwigger/dastardly-github-action@main
+        with:
+          target-url: 'https://webappstest.github.io/todo-react/'
+        
