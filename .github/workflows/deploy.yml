@@ -42,7 +42,7 @@ jobs:
         with:
           cmd: build
         env:
-          PUBLIC_URL: /todo-react/${{ github.run_id }}
+          PUBLIC_URL: https://webappstest.github.io/todo-react/${{ github.run_id }}
 
       - name: Setup pages
         uses: actions/configure-pages@v2
@@ -58,5 +58,5 @@ jobs:
         # run: echo $url
         uses: PortSwigger/dastardly-github-action@main
         with:
-          target-url: 'https://webappstest.github.io/todo-react'
+          target-url: 'https://webappstest.github.io/todo-react/${{ github.run_id }}'
         
