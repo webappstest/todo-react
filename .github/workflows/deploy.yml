@@ -58,5 +58,5 @@ jobs:
         # run: echo $url
         uses: PortSwigger/dastardly-github-action@main
         with:
-          target-url: 'https://webappstest.github.io/todo-react/${{ github.run_id }}'
+          target-url: 'https://www.khanacademy.org/'
         
